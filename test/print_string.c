@@ -4,26 +4,26 @@
 
 /**
   * print_string - prints a string
-  * @args: string to print
+  * @str: string to print
   *
   * Return:number of characters printed
   *
   */
 
-int print_string(va_list args)
+int print_string(char *str)
 {
-	char *s;
+	va_list args;
 	int i = 0;
 	int count = 0;
 
-	s = va_arg(args, char *);
+	str = va_arg(args, char *);
 
-	if (s == NULL)
-		s = "(null)";
+	if (str == NULL)
+		str = "(null)";
 
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		_putchar(s[i]);
+		_putchar(str[i]);
 		count++;
 		i++;
 	}

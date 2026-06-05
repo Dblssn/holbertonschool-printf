@@ -7,15 +7,14 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, count = 0;
-	char *str;
+	int i = 0, count = 0, result;
 
 	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
 
-	while (format && format[i])
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -27,39 +26,21 @@ int _printf(const char *format, ...)
 				return (-1);
 			}
 
-			switch (format[i])
-			{
-				case 'c':
-					_putchar(va_arg(args, int));
-					count++;
-					break;
+			result = handle_specifier(format[i], args);
 
-				case 's':
-					str = va_arg(args, char*);
-					if (str == NULL)
-						str = "(null)";
+			if  (result == -1)
+				count += _putchar('%') + _putchar(format[i]);
 
-					while (*str)
-					{
-						_putchar(*str);
-						str++;
-						count++;
-					}
-					return (count);
-
-				case '%':
-					_putchar('%');
-					count++;
-					break;
-			}
+			else
+				count += results;
 		}
 		else
 		{
-			_putchar(format[i]);
-			count++;
+			count += _putchar(format[i]);
 		}
 		i++;
 	}
 	va_end(args);
+
 	return (count);
 }

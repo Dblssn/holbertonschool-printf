@@ -1,13 +1,22 @@
 #include "main.h"
 /**
  *print_integer - print integer
- *@args: argument
- *Return: Always 0
+ *@n: integer
+ *Return: value
  */
-int print_integer(va_list args)
+int print_integer(unsigned int n)
 {
-	int i;
+	int count = 0;
+	char num;
 
-	for (i = 0; i < args; i++)
-		return (i);
+	if (n / 10)
+	{
+		count += print_integer(n / 10);
+	}
+
+	num = (n % 10) + '0';
+
+	count += write(1, &num, 1);
+
+	return (count);
 }
