@@ -1,4 +1,4 @@
-.TH _PRINTF 3 "JUNE 2026" "Holberton School" "IssaPrinner Man Page"
+.TH _PRINTF 3 "JUNE 2026" "Holberton School" "IssaPrinnnner Man Page"
 _printf \- produces output according to a format
 .SH SYNOPSIS
 .B #include "main.h"
