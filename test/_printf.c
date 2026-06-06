@@ -28,18 +28,21 @@ int _printf(const char *format, ...)
 
 			result = handle_specifier(format[i], args);
 
-			if  (result == -1)
+			if (result == -1)
 				count += _putchar('%') + _putchar(format[i]);
 
 			else
-				count += results;
+				count += result;
 		}
+
 		else
 		{
 			count += _putchar(format[i]);
 		}
+
 		i++;
 	}
+
 	va_end(args);
 
 	return (count);

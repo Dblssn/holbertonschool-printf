@@ -8,7 +8,7 @@
  */
 int handle_specifier(char specifier, va_list args)
 {
-	switch (specifiers)
+	switch (specifier)
 	{
 
 		case 'c':

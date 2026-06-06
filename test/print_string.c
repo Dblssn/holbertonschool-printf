@@ -4,19 +4,17 @@
 
 /**
   * print_string - prints a string
-  * @str: string to print
+  * @args: string to print
   *
   * Return:number of characters printed
   *
   */
 
-int print_string(char *str)
+int print_string(va_list args)
 {
-	va_list args;
+	char *str = va_arg(args, char *);
 	int i = 0;
 	int count = 0;
-
-	str = va_arg(args, char *);
 
 	if (str == NULL)
 		str = "(null)";
