@@ -9,19 +9,21 @@ int help_int(int n)
 {
 	int count = 0;
 	char num;
+	unsigned int positive;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n = n * -1;
+		positive = (unsigned int)(-(n + 1)) + 1;
 	}
-
-	if (n >= 10)
+	else
+		positive = (unsigned int)n;
+	if (positive >= 10)
 	{
-		count += help_int(n / 10);
+		count += help_int((int)(positive / 10));
 	}
 
-	num = (n % 10) + '0';
+	num = (positive % 10) + '0';
 
 	count += write(1, &num, 1);
 
