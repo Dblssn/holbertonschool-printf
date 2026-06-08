@@ -1,31 +1,27 @@
 #include "main.h"
 
 /**
- * help_int - help print integer
- *@n: integer to be printed
- *Return: count of int
+ * help_int - prints an integer
+ * @n: integer
+ * Return: number of characters printed
  */
 int help_int(int n)
 {
 	int count = 0;
-	char num;
-	unsigned int positive;
+	unsigned int num;
 
 	if (n < 0)
 	{
-		_putchar('-');
-		positive = (unsigned int)(-(n + 1)) + 1;
+		count += _putchar('-');
+		num = -n;
 	}
 	else
-		positive = (unsigned int)n;
-	if (positive >= 10)
-	{
-		count += help_int((int)(positive / 10));
-	}
+		num = n;
 
-	num = (positive % 10) + '0';
+	if (num / 10)
+		count += help_int(num / 10);
 
-	count += write(1, &num, 1);
+	count += _putchar((num % 10) + '0');
 
 	return (count);
 }
